@@ -1,0 +1,147 @@
+html, body{
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	background: #cccccc;
+}
+
+header{
+	font-family: Catamaran;
+	font-size; 70px;
+	text-align: center;
+	margin: 30px;
+	color: #936969
+	font-weight: bold;
+}
+
+.player{
+	display: relative;
+	font-family: Catamaran;
+	font-size: 40px;
+	color: #936969;
+	text-align: center;
+	margin: 10px auto;
+	width: 200px;
+}
+
+.currentPlayer{
+	background-color: #936969;
+	color: #EEE8AA;
+}
+
+#winner{
+	font-family: Catamaran;
+	font-size: 40px;
+	color:  #936969;
+	text-align: center;
+	margin: 20px;
+}
+
+.board{
+	width: 1050px;
+	height: 260px;
+	border: 8px solid #936969;
+	margin: auto;
+	text-align: center;
+	padding-top: 5px;
+	border-radius: 30px;
+	background-image: url("../wood.png");
+}
+
+#divRows{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.pebble{
+	margin: 5px;
+	width: 20px;
+	height: 20px;
+	border-radius: 15px;
+	border: 1px solid #444; 
+}
+
+.pod{
+	font-family: Catamaran;
+	position: relative;
+	border: 3px solid #936969;
+	border-radius: 50%;
+	border-spacing: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	width: 100px;
+	margin: 10px;
+	color: #936969;
+	font-size: 50px;
+}
+
+.pod:hover, #buttonDiv:hover{
+	background-color: #936969;
+	color: #EEE8AA;
+	cursor: pointer;
+}
+
+.pod.lock:hover{
+	color: #936969;
+	cursor: not-allowed;
+}
+
+.mancala{
+	font-family: Catamaran;
+	border: 3px solid #936969;
+	border-radius: 30px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 220px;
+	width: 100px;
+	margin: 15px 10px;
+	color: #936969;
+	font-size: 50px;
+}
+
+#mancala1{
+	float: right;
+}
+
+#mancala2{
+	float: left;
+}
+
+.plusOne{
+	font-family: Catamaran;
+	color: #936969;
+	font-size: 80px;
+	margin: 10px;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+#divRows{
+	margin: auto;
+}
+
+#restartDiv{
+	font-family: Catamaran;
+	font-size: 30px;
+	width: 150px;
+	height: 40px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: #936969;
+	color: #EEE8AA;
+	cursor: pointer;
+}
