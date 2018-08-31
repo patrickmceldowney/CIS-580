@@ -3,7 +3,7 @@ var win //= false;
 var winner //= "";
 var currentPlayer //= "Player 1";
 
-var Pod = function(value) {
+var Pit = function(value) {
   this.value = value;
 }
 
@@ -11,19 +11,7 @@ var Pod = function(value) {
 
 var mancala1;
 var mancala2;
-
-var pod1;
-var pod2;
-var pod3;
-var pod4;
-var pod5;
-var pod6;
-var pod7;
-var pod8;
-var pod9;
-var pod10;
-var pod11;
-
+var pit0, pit1, pit2, pit3, pit4, pit5, pit6, pit7, pit8, pit9, pit10, pit11;
 
 var board;
 
@@ -32,24 +20,25 @@ var startGame = function() {
   winner = "";
   currentPlayer = "Player 1";
 
-  mancala1 = new Pod(0);
-  mancala2 = new Pod(0);
+  mancala1 = new Pit(0);
+  mancala2 = new Pit(0);
 
-  pod0 = new Pod(4);
-  pod1 = new Pod(4);
-  pod2 = new Pod(4);
-  pod3 = new Pod(4);
-  pod4 = new Pod(4);
-  pod5 = new Pod(4);
-  pod6 = new Pod(4);
-  pod7 = new Pod(4);
-  pod8 = new Pod(4);
-  pod9 = new Pod(4);
-  pod10 = new Pod(4);
-  pod11 = new Pod(4);
 
-  board = [pod0, pod1, pod2, pod3, pod4, pod5,
-           pod6, pod7, pod8, pod9, pod10, pod11];
+  pit0 = new Pit(4);
+  pit1 = new Pit(4);
+  pit2 = new Pit(4);
+  pit3 = new Pit(4);
+  pit4 = new Pit(4);
+  pit5 = new Pit(4);
+  pit6 = new Pit(4);
+  pit7 = new Pit(4);
+  pit8 = new Pit(4);
+  pit9 = new Pit(4);
+  pit10 = new Pit(4);
+  pit11 = new Pit(4);
+
+  board = [pit0, pit1, pit2, pit3, pit4, pit5,
+           pit6, pit7, pit8, pit9, pit10, pit11];
 
   updateMoveCSS();
   render();
@@ -63,60 +52,60 @@ clickOn();
 // initializing game
 var countMove = 0;
 var iterator = 0;
-var seedsInHand = 0;
+var pebbles = 0;
 
 
 var move = function (index) {
-  // utilize value from clicked pod
-  seedsInHand = board[index].value;
+  // utilize value from clicked pit
+  pebbles = board[index].value;
   countMove = board[index].value;
   board[index].value = 0;
 
-  // loop through value of clicked pod
+  // loop through value of clicked pit
   for (var i = countMove; i >= 0; i--) {
 
     // loop for player 1
-    if (currentPlayer === "Player 1" && seedsInHand === 1 && index === 11) {
+    if (currentPlayer === "Player 1" && pebbles === 1 && index === 11) {
       mancala1.value++;
       fadeInRight();
-      seedsInHand = -1;
-    } else if (currentPlayer === "Player 1" && seedsInHand > 1 && index === 11) {
+      pebbles = -1;
+    } else if (currentPlayer === "Player 1" && pebbles > 1 && index === 11) {
         mancala1.value++;
         fadeInRight();
         index = 0;
         board[index].value++;
-        seedsInHand -= 2;
-    } else if (currentPlayer === "Player 1" && seedsInHand > 0) {
+        pebbles -= 2;
+    } else if (currentPlayer === "Player 1" && pebbles > 0) {
         index++;
         board[index].value++;
-        seedsInHand--;
-    } else if (currentPlayer === "Player 1" && seedsInHand === 0
+        pebbles--;
+    } else if (currentPlayer === "Player 1" && pebbles === 0
               && board[index].value === 1 && ((6 <= index) && (index <= 11))
               && board[11-index].value > 0) {
       eatOpp(index);
     }
 
     // loop for player 2
-    if (currentPlayer === "Player 2" && seedsInHand === 1 && index === 5) {
+    if (currentPlayer === "Player 2" && pebbles === 1 && index === 5) {
       mancala2.value++;
       fadeInLeft();
-      seedsInHand = -1;
-    } else if (currentPlayer === "Player 2" && seedsInHand > 1 && index === 5) {
+      pebbles = -1;
+    } else if (currentPlayer === "Player 2" && pebbles > 1 && index === 5) {
         mancala2.value++;
         fadeInLeft();
         index++;
         board[index].value++;
-        seedsInHand -=2;
-    } else if (currentPlayer === "Player 2" && seedsInHand > 0) {
+        pebbles -=2;
+    } else if (currentPlayer === "Player 2" && pebbles > 0) {
         if (index === 11) {
           index = 0;
           board[index].value++;
-          seedsInHand--;
+          pebbles--;
         }
         index++;
         board[index].value++;
-        seedsInHand--;
-    } else if (currentPlayer === "Player 2" && seedsInHand === 0
+        pebbles--;
+    } else if (currentPlayer === "Player 2" && pebbles === 0
               && board[index].value === 1 && ((0 <= index) && (index <= 5))
               && board[11-index].value > 0) {
         eatOpp(index);
@@ -141,7 +130,7 @@ function invalid (index) {
 
 function changePlayer(index) {
   if (currentPlayer === "Player 1") {
-    if (seedsInHand === -1 && index === 11) {
+    if (pebbles === -1 && index === 11) {
       console.log("player goes again");
       currentPlayer = "Player 1";
     } else {
@@ -149,7 +138,7 @@ function changePlayer(index) {
       console.log("I am supposed to change players");
     }
   } else if (currentPlayer === "Player 2") {
-    if (seedsInHand === -1 && index === 5) {
+    if (pebbles === -1 && index === 5) {
       console.log("player goes again");
       currentPlayer = "Player 2";
     } else {
@@ -241,7 +230,7 @@ function gameWinner() {
 function render() {
   $('#currentPlayer').text("Current Player: "+ currentPlayer);
   for (var i = 0; i < board.length; i += 1) {
-      $('#pod' + i).text(board[i].value)
+      $('#pit' + i).text(board[i].value)
     }
   $('#mancala1').text(mancala1.value);
   $('#mancala2').text(mancala2.value);
@@ -249,7 +238,7 @@ function render() {
 
 // event listeners
 function clickOn() {
-  $('.pod').on('click', function(event) {
+  $('.pit').on('click', function(event) {
     event.preventDefault();
     var index = parseInt(event.target.id.slice(3));
     invalid(index);
