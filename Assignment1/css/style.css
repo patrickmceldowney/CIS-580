@@ -2,37 +2,39 @@ html, body{
 	width: 100%;
 	height: 100%;
 	min-height: 100%;
-	background: #cccccc;
+	background: #000;
 }
 
 header{
 	font-family: Catamaran;
-	font-size; 70px;
+	font-size: 70px;
 	text-align: center;
-	margin: 30px;
-	color: #936969
-	font-weight: bold;
+	margin: 40px;
+	color: #f6f5d9;
+	letter-spacing: 8px;
 }
 
 .player{
 	display: relative;
 	font-family: Catamaran;
 	font-size: 40px;
-	color: #936969;
+	color: #A9A9A9;
 	text-align: center;
 	margin: 10px auto;
 	width: 200px;
+	border-radius: 25px;
+	border-style: inset;
 }
 
 .currentPlayer{
-	background-color: #936969;
+	background-color: #A9A9A9;
 	color: #EEE8AA;
 }
 
 #winner{
 	font-family: Catamaran;
 	font-size: 40px;
-	color:  #936969;
+	color:  #A9A9A9;
 	text-align: center;
 	margin: 20px;
 }
@@ -40,12 +42,13 @@ header{
 .board{
 	width: 1050px;
 	height: 260px;
-	border: 8px solid #936969;
+	border: 4px solid #A9A9A9;
 	margin: auto;
 	text-align: center;
 	padding-top: 5px;
 	border-radius: 30px;
-	background-image: url("../wood.png");
+	background-image: url("../wood-background.jpg");
+	background-size: cover;
 }
 
 #divRows{
@@ -60,13 +63,13 @@ header{
 	width: 20px;
 	height: 20px;
 	border-radius: 15px;
-	border: 1px solid #444; 
+	border: 1px solid #444;
 }
 
-.pod{
+.pit{
 	font-family: Catamaran;
 	position: relative;
-	border: 3px solid #936969;
+	border: 3px solid #A9A9A9;
 	border-radius: 50%;
 	border-spacing: 20px;
 	display: flex;
@@ -76,24 +79,27 @@ header{
 	height: 100px;
 	width: 100px;
 	margin: 10px;
-	color: #936969;
+	color: #A9A9A9;
 	font-size: 50px;
+	-moz-box-shadow: inset 0 0 10px #888888;
+	-webkit-box-shadow: inset 0 0 10px #888888;
+	box-shadow: inset 0 0 10px #888888;
 }
 
-.pod:hover, #buttonDiv:hover{
-	background-color: #936969;
+.pit:hover, #buttonDiv:hover{
+	background-color: #A9A9A9;
 	color: #EEE8AA;
 	cursor: pointer;
 }
 
-.pod.lock:hover{
-	color: #936969;
+.pit.lock:hover{
+	color: #A9A9A9;
 	cursor: not-allowed;
 }
 
 .mancala{
 	font-family: Catamaran;
-	border: 3px solid #936969;
+	border: 3px solid #A9A9A9;
 	border-radius: 30px;
 	position: relative;
 	display: flex;
@@ -103,8 +109,11 @@ header{
 	height: 220px;
 	width: 100px;
 	margin: 15px 10px;
-	color: #936969;
+	color: #A9A9A9;
 	font-size: 50px;
+	-moz-box-shadow: inset 0 0 10px #888888;
+	-webkit-box-shadow: inset 0 0 10px #888888;
+	box-shadow: inset 0 0 10px #888888;
 }
 
 #mancala1{
@@ -117,7 +126,7 @@ header{
 
 .plusOne{
 	font-family: Catamaran;
-	color: #936969;
+	color: #A9A9A9;
 	font-size: 80px;
 	margin: 10px;
 }
@@ -141,7 +150,9 @@ header{
 	height: 40px;
 	text-align: center;
 	margin: 10px auto;
-	background-color: #936969;
+	background-color: #A9A9A9;
 	color: #EEE8AA;
 	cursor: pointer;
+	padding-bottom: 7px;
+	border-radius: 25px;
 }
