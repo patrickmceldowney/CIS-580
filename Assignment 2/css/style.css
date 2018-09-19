@@ -1,0 +1,70 @@
+html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 25%;
+  color: #fff;
+  background-color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  background: url("../assets/starfield.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game_container{
+  position: relative;
+  width: 700px;
+}
+
+#game_wrapper{
+  width: 900;
+  height: 950;
+  position: absolute;
+}
+
+#invaders_canvas{
+  position: absolute;
+}
+#background_canvas{
+  position: absolute;
+  background: #0d0d0d;
+}
+
+#hud{
+  font-size: 1.6em;
+  width: 570px;
+  height: 350px;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+
+#game_over{
+  display: none;
+  margin-top: 150px;
+  width: 570px;
+  text-align: center;
+  font-size: 2.2em;
+  position: absolute;
+  z-index: 1;
+}
+
+.score{
+  width 70%;
+  float: left;
+}
+
+.lives{
+  float: right;
+  width:33%;
+  height: 15%;
+}
